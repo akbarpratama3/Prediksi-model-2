@@ -16,7 +16,7 @@ def predict_price(data, model, scaler):
     
     # Prediksi harga untuk 10 hari ke depan
     predictions = []
-    for _ in range(10):
+    for _ in range(60):
         pred = model.predict(last_60_days)
         predictions.append(pred[0, 0])
         last_60_days = np.append(last_60_days[:, 1:, :], pred.reshape(1, 1, 1), axis=1)
